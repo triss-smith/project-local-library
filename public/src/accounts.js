@@ -1,4 +1,7 @@
-function findAccountById(accounts, id) {}
+function findAccountById(accounts, id) {
+  const correctAccount =  accounts.find((array) => array.id = id)
+
+}
 
 function sortAccountsByLastName(accounts) {}
 
