@@ -1,9 +1,11 @@
 function findAccountById(accounts, id) {
-  const correctAccount =  accounts.find((array) => array.id = id)
-
+  return accounts.find((array) => array.id == id)
 }
 
-function sortAccountsByLastName(accounts) {}
+function sortAccountsByLastName(accounts) {
+  return accounts.sort((element1,element2) => element1.name.last.toLowerCase() < element2.name.last.toLowerCase() ? -1 : 1)
+
+}
 
 function numberOfBorrows(account, books) {}
 
