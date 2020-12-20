@@ -18,7 +18,6 @@ function partitionBooksByBorrowedStatus(books) {
       booksOut.push(books[i])
     }
   }
-  console.log(booksOut)
   booksTotalArray.push(booksOut)
   booksTotalArray.push(booksAvailable)
   return booksTotalArray;
