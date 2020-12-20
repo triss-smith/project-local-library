@@ -7,7 +7,19 @@ function sortAccountsByLastName(accounts) {
 
 }
 
-function numberOfBorrows(account, books) {}
+function numberOfBorrows(account, books) {
+  let bookBorrows = 0;
+  let accountId = account.id;
+  for(let i = 0; i < books.length; i++) {
+    bookBorrows += books[i].borrows.reduce((acc,array) => {
+      if(array.id === accountId) {
+        acc++;
+      }
+      return acc;
+    }, 0)
+  }
+  return bookBorrows;  
+}
 
 function getBooksPossessedByAccount(account, books, authors) {}
 

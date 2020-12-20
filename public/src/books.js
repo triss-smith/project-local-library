@@ -1,6 +1,10 @@
-function findAuthorById(authors, id) {}
+function findAuthorById(authors, id) {
+  return authors.find((array) => array.id === id)
+}
 
-function findBookById(books, id) {}
+function findBookById(books, id) {
+  return books.find((array) => array.id === id)
+}
 
 function partitionBooksByBorrowedStatus(books) {}
 
