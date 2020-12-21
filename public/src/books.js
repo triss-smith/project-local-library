@@ -31,7 +31,9 @@ function getBorrowersForBook(book, accounts) {
     accountArray[i].returned = book.borrows[i].returned;
     
   }
+  console.log(book)
   return accountArray;
+  //returns 11 instead of 10
 }
 
 

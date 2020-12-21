@@ -16,15 +16,15 @@ function booksBorrowedCount(books) {
   return bookBorrows;
 }
 
-function getMostCommonGenres(books) {}
-
-function getMostPopularBooks(books) {
-  let popularBooks = books.reduce((acc,element) => {
-    if(acc.includes(element))     
+function getMostCommonGenres(books) {let popularBooks = books.reduce((acc,element) => {
+    if(acc.includes(element.genre))     
     {acc[element.genre].count += element.borrows.length} 
     else {acc.push({"name": element.genre, "count": element.borrows.length})}
   return acc}, [])
-console.log(popularBooks)
+console.log(popularBooks)}
+
+function getMostPopularBooks(books) {
+  
  
 }
 
