@@ -16,12 +16,30 @@ function booksBorrowedCount(books) {
   return bookBorrows;
 }
 
-function getMostCommonGenres(books) {let popularBooks = books.reduce((acc,element) => {
-    if(acc.includes(element.genre))     
-    {acc[element.genre].count += element.borrows.length} 
-    else {acc.push({"name": element.genre, "count": element.borrows.length})}
-  return acc}, [])
-console.log(popularBooks)}
+function getMostCommonGenres(books) {
+  let popularGenres = [];
+  popularGenres.push({"name": books[0].genre, "count": 1});
+  for(let i = 1; i < books.length; i++) {
+    console.log(popularGenres[books[i].genre].name === books[i].genre)
+    if(popularGenres[books[i].genre] === books[i].genre) {
+      popularGenres[books[i].genre].count ;
+    }
+    else {popularGenres.push({"name": books[i].genre, "count": 1})}
+  }
+
+console.log(popularGenres)
+}
+
+    
+
+/*let popularGenres = []
+for(let i = 0; i < books.length; i++) {
+  if(!popularGenres.name == books[i].genre) {
+    popularGenres()
+  }
+}
+return popularBooks;*/
+
 
 function getMostPopularBooks(books) {
   

@@ -22,6 +22,17 @@ function numberOfBorrows(account, books) {
 }
 
 function getBooksPossessedByAccount(account, books, authors) {
+  let bookArray = [];
+  let accountId = account.id;
+  
+  for(let i = 0; i < books.length; i++) {    
+    let bookBorrows = books[i].borrows[0]    
+    if(accountId === bookBorrows.id && bookBorrows.returned === false) {
+        books[i].author = (authors.find((array) => array.id === books[i].authorId))
+      bookArray.push(books[i]);         
+    }
+  }
+  return bookArray;
   
 }
 
