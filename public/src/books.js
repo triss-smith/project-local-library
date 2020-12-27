@@ -28,12 +28,9 @@ function getBorrowersForBook(book, accounts) {
   for(let i = 0; i < book.borrows.length; i++) {
     let findAccount = [];
     accountArray.push(accounts.find((array) => array.id === book.borrows[i].id))
-    accountArray[i].returned = book.borrows[i].returned;
-    
-  }
-  
-  return accountArray;
-  //returns 11 instead of 10
+    accountArray[i].returned = book.borrows[i].returned;    
+  }  
+  return accountArray.slice(0,10);  //returns 11 instead of 10
 }
 
 

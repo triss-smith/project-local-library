@@ -17,33 +17,42 @@ function booksBorrowedCount(books) {
 }
 
 function getMostCommonGenres(books) {
-  let popularGenres = [];
-  popularGenres.push({"name": books[0].genre, "count": 1});
-  for(let i = 1; i < books.length; i++) {
-    console.log(popularGenres[books[i].genre].name === books[i].genre)
-    if(popularGenres[books[i].genre] === books[i].genre) {
-      popularGenres[books[i].genre].count ;
-    }
-    else {popularGenres.push({"name": books[i].genre, "count": 1})}
+  let genreArray = [];
+  let unsortedArray = [];
+  let finalArray = []
+  books.forEach((element) => {
+    if(!genreArray.includes(element.genre)){
+      genreArray.push(element.genre)}})
+
+  genreArray.forEach((element) => books.forEach((bookElement) => {if(element != bookElement.genre){
+    unsortedArray[element] = 1;
   }
-
-console.log(popularGenres)
-}
-
-    
-
-/*let popularGenres = []
-for(let i = 0; i < books.length; i++) {
-  if(!popularGenres.name == books[i].genre) {
-    popularGenres()
-  }
-}
-return popularBooks;*/
-
-
-function getMostPopularBooks(books) {
+  else{unsortedArray[element] += 1}
   
+}))
+
+let genreKeys = Object.keys(unsortedArray)
+let genreValues = Object.values(unsortedArray);
+for(let i = 0; i < genreKeys.length; i++) {
+  finalArray.push({"name":genreKeys[i],"count":genreValues[i]})
+}
+finalArray.sort((a,b) => b.count < a.count ? -1:1)
+console.log(finalArray)
+  return finalArray;
+}
+
+
+
+function getMostPopularBooks(books) {  
+ let popularBooks = [];
+ books.sort((a,b) => b.borrows.length - a.borrows.length)
+
+ books.forEach((element) => {
+ let title = element.title;
+ let borrows = element.borrows.length
+ popularBooks.push({"name":title, "count":borrows})})
  
+ return popularBooks.slice(0,5);
 }
 
 function getMostPopularAuthors(books, authors) {}
