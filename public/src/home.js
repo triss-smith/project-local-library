@@ -69,11 +69,11 @@ function getMostPopularAuthors(books, authors) {
     let authorValues = Object.values(authorBooksArray);
   for(let i = 0; i < authorBooksArray.length; i++) {
 
-    finalArray.push({"name": `${authors[i].name.first} ${authors[i].name.last}`, "count": authorValues[i]})
+    finalArray.push({"name": `${authors[i].name.first} ${authors[i].name.last}`, "count": authorValues[i].bookAuthorId})
   }
-
+  finalArray.sort((a,b) => b.count < a.count ? -1:1)
   console.log(finalArray);
-  return finalArray;
+  return finalArray.slice(0,5);
 }
 
 module.exports = {
