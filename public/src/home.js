@@ -49,20 +49,31 @@ function getMostPopularBooks(books) {
 }
 
 function getMostPopularAuthors(books, authors) {
-  let authorIds = Object.values(authors.id);
+ 
   let authorBooksArray = [];
   
-    books.forEach((bookElement) => {
-      console.log(bookElement.borrows.length)
+  let finalArray = [];
+   
+  books.forEach((bookElement) => {
+      let bookBorrows = bookElement.borrows.length;
+      let bookAuthorId = bookElement.authorId;
+      
       if(authorBooksArray[bookElement.authorId]) {
-        authorBooksArray[bookElement.authorId] += bookElement.borrows.length;
+        authorBooksArray.bookAuthorId += bookBorrows;
       } else {
-        authorBooksArray[bookElement.authorId] = bookElement.borrows.length;
+        authorBooksArray.push({bookAuthorId : bookBorrows});
       }
     })
-  
-  console.log(authorBooksArray);
-  
+    //console.log(authorBooksArray)
+    let authorKeys = Object.keys(authorBooksArray);
+    let authorValues = Object.values(authorBooksArray);
+  for(let i = 0; i < authorBooksArray.length; i++) {
+
+    finalArray.push({"name": `${authors[i].name.first} ${authors[i].name.last}`, "count": authorValues[i]})
+  }
+
+  console.log(finalArray);
+  return finalArray;
 }
 
 module.exports = {
