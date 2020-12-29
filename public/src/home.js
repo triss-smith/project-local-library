@@ -19,7 +19,7 @@ function booksBorrowedCount(books) {
 function getMostCommonGenres(books) {
   let unsortedArray = [];
   let finalArray = [];
-  
+   
   books.forEach((bookElement) => {
     if(unsortedArray[bookElement.genre]){
     unsortedArray[bookElement.genre]++}  
