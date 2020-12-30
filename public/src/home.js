@@ -1,3 +1,7 @@
+function arraySlicer(array) {
+  return array.slice(0,5)
+}
+
 function totalBooksCount(books) {
   return books.length;
 }
@@ -31,7 +35,7 @@ for(let i = 0; i < genreKeys.length; i++) {
   finalArray.push({"name":genreKeys[i],"count":genreValues[i]})
 }
 finalArray.sort((a,b) => b.count < a.count ? -1:1)
-return finalArray.slice(0,5);
+return arraySlicer(finalArray);
 }
 
 
@@ -58,6 +62,7 @@ function getMostPopularAuthors(books, authors) {
       let bookBorrows = bookElement.borrows.length;
       let bookAuthorId = bookElement.authorId;
     authorBooksArray.push({bookAuthorId : bookBorrows});})
+    
     let authorKeys = Object.keys(authorBooksArray);
     let authorValues = Object.values(authorBooksArray);
   for(let i = 0; i < authorBooksArray.length; i++) {
@@ -65,7 +70,7 @@ function getMostPopularAuthors(books, authors) {
     finalArray.push({"name": `${authors[i].name.first} ${authors[i].name.last}`, "count": authorValues[i].bookAuthorId})
   }
   finalArray.sort((a,b) => b.count < a.count ? -1:1)
-  return finalArray.slice(0,5);
+  return arraySlicer(finalArray);
 }
 
 module.exports = {
