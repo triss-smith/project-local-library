@@ -41,28 +41,26 @@ return arraySlicer(finalArray);
 
  
 function getMostPopularBooks(books) {  
- let popularBooks = [];
- books.sort((a,b) => b.borrows.length - a.borrows.length)
-
- books.forEach((element) => {
- let title = element.title;
- let borrows = element.borrows.length
- popularBooks.push({"name":title, "count":borrows})})
  
+ books.sort((a,b) => b.borrows.length - a.borrows.length)
+let popularBooks = books.map(element => {
+  let bookObject = {};
+  let title = element.title;
+ let borrows = element.borrows.length;
+  bookObject = {"name":title,"count":borrows};
+  return bookObject;
+}); 
  return popularBooks.slice(0,5);
 }
 
-function getMostPopularAuthors(books, authors) {
- 
-  let authorBooksArray = [];
-  
+function getMostPopularAuthors(books, authors) { 
+  let authorBooksArray = [];  
   let finalArray = [];
    
   books.forEach((bookElement) => {
       let bookBorrows = bookElement.borrows.length;
       let bookAuthorId = bookElement.authorId;
     authorBooksArray.push({bookAuthorId : bookBorrows});})
-    
     let authorKeys = Object.keys(authorBooksArray);
     let authorValues = Object.values(authorBooksArray);
   for(let i = 0; i < authorBooksArray.length; i++) {
